@@ -4,6 +4,8 @@
     import { route, checkRole, checkPermission } from '@/Utils'
     import { _ } from 'svelte-i18n'
 
+    import InfoMessage from '@/Shared/InfoMessage'
+
     export let nodo
     export let equiposFormacion
     export let search
@@ -59,10 +61,10 @@
                             </div>
                         </a>
                     {/each}
-                    {#if equiposFormacion.length == 0}
-                        <p>Sin información registrada.</p>
-                    {/if}
                 </div>
+                {#if equiposFormacion.length == 0}
+                    <InfoMessage alertMsg={true} class="w-full">Sin información registrada.</InfoMessage>
+                {/if}
             </div>
         </div>
     </div>

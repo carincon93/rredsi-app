@@ -5,8 +5,7 @@
     import { _ } from 'svelte-i18n'
     import { Inertia } from '@inertiajs/inertia'
 
-    import FormEstudiante from '../Users/Form'
-    import FormEmpresario from '../Users/FormEmpresario'
+    import Form from '../Users/Form'
     import InfoMessage from '@/Shared/InfoMessage'
     import Button from '@/Shared/Button'
 
@@ -22,7 +21,7 @@
 
     let sending = false
 
-    let formEstudiante = useForm({
+    let form = useForm({
         institucion_educativa_id: null,
         name: '',
         email: '',
@@ -36,35 +35,16 @@
         perfil: '',
         cvlac: '',
         autorizacion_tratamiento_datos: true,
-        tipo_usuario: tipoUsuario,
-    })
-
-    function submitEstudiante() {
-        if ($formEstudiante.autorizacion_tratamiento_datos) {
-            $formEstudiante.post(route('register'))
-        }
-    }
-
-    let formEmpresario = useForm({
-        name: '',
-        email: '',
-        password: null,
-        password_confirmation: null,
-        tipo_documento: '',
-        numero_documento: '',
-        numero_celular: '',
         nit: '',
         nombre_empresa: '',
         direccion_empresa: '',
         numero_celular_empresa: '',
         email_empresa: '',
-        autorizacion_tratamiento_datos: true,
-        tipo_usuario: tipoUsuario,
     })
 
-    function submitEmpresario() {
-        if ($formEmpresario.autorizacion_tratamiento_datos) {
-            $formEmpresario.post(route('register'))
+    function submitEstudiante() {
+        if ($form.autorizacion_tratamiento_datos) {
+            $form.post(route('register'))
         }
     }
 
@@ -81,10 +61,6 @@
         </div>
     </InfoMessage>
     <div>
-        {#if tipoUsuario == 'estudiante'}
-            <FormEstudiante {errors} authUser={null} submit={submitEstudiante} {tiposDocumento} roles={null} method="register" {institucionesEducativas} {sending} form={formEstudiante} />
-        {:else if tipoUsuario == 'empresario'}
-            <FormEmpresario {errors} authUser={null} submit={submitEmpresario} {tiposDocumento} roles={null} method="register" {sending} {formEmpresario} />
-        {/if}
+        <Form {errors} authUser={null} submit={submitEstudiante} {tiposDocumento} roles={null} method="register" {tipoUsuario} {institucionesEducativas} {sending} {form} />
     </div>
 </GuestLayout>

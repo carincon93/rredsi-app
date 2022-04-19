@@ -45,21 +45,23 @@
 <AuthenticatedLayout>
     <div class="snap-y snap-mandatory h-screen overflow-y-auto overflow-x-hidden">
         <section class="snap-start relative h-screen">
-            <div class="grid grid-cols-2 h-full items-center">
-                <div class="pl-[215.600px]">
-                    <h1 class="mt-[-2rem] text-4xl text-left font-extrabold">
-                        <span class="block text-blue-900 xl:inline">
-                            RREDSI-Ibis: La plataforma para el fortalecimiento de la investigación académica de
-                            {nodo.departamento}
-                        </span>
-                    </h1>
-                    <p class="mt-10">
-                        Con la nueva plataforma RREDSI-Ibis ahora puede buscar proyectos de su interés que se esten trabajando en los semilleros de investigación de las {nodo.instituciones_educativas?.length} instituciones educativas de RREDSI {nodo.departamento} y colaborar en su desarrollo o registre su proyecto y conecte con jóvenes investigadores de otras instituciones.
-                    </p>
+            <div class="max-w-7xl mx-auto pb-14 pt-4">
+                <div class="grid grid-cols-2 min-h-[32.6rem] relative">
+                    <div class="flex flex-col justify-center pr-10">
+                        <h1 class="mt-[-2rem] text-4xl text-left font-extrabold">
+                            <span class="block text-blue-900 xl:inline">
+                                RREDSI-Ibis: La plataforma para el fortalecimiento de la investigación académica de
+                                {nodo.departamento}
+                            </span>
+                        </h1>
+                        <p class="mt-10">
+                            Con la nueva plataforma RREDSI-Ibis ahora puede buscar proyectos de su interés que se esten trabajando en los semilleros de investigación de las {nodo.instituciones_educativas?.length} instituciones educativas de RREDSI {nodo.departamento} y colaborar en su desarrollo o registre su proyecto y conecte con jóvenes investigadores de otras instituciones.
+                        </p>
+                    </div>
+                    <figure class="absolute right-[-17rem] top-[-4rem]" style="clip-path: polygon(21% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                        <img src="/storage/images/AdobeStock_hero.jpeg" alt="" class="w-[1000px] h-[667px] object-cover" />
+                    </figure>
                 </div>
-                <figure class="absolute right-[-34rem] top-0" style="clip-path: polygon(21% 0%, 100% 0%, 100% 100%, 0% 100%);">
-                    <img src="/storage/images/AdobeStock_hero.jpeg" alt="" class="h-screen" />
-                </figure>
             </div>
         </section>
 
@@ -152,10 +154,11 @@
                                 </div>
                             </a>
                         {/each}
-                        {#if nodo.proyectosAleatorios.length == 0}
-                            <p>Sin información registrada.</p>
-                        {/if}
                     </div>
+
+                    {#if nodo.proyectosAleatorios.length == 0}
+                        <InfoMessage alertMsg={true} class="w-full">Sin información registrada.</InfoMessage>
+                    {/if}
                 </div>
             </div>
         </section>

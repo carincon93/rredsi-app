@@ -47,10 +47,10 @@
                         </a>
                     </li>
                 {/each}
-                {#if estudios.length == 0}
-                    <InfoMessage alertMsg={true}>Sin información registrada.</InfoMessage>
-                {/if}
             </ul>
+            {#if estudios.length == 0}
+                <InfoMessage alertMsg={true} class="w-full">Sin información registrada.</InfoMessage>
+            {/if}
         </div>
     </div>
 </AuthenticatedLayout>

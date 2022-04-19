@@ -65,31 +65,6 @@
                 <Input id="numero_celular_user" type="text" class="mt-1" bind:value={$formEmpresario.numero_celular} error={errors.numero_celular} required />
             </div>
 
-            <div>
-                <Label required labelFor="nit" value="NIT" />
-                <Input id="nit" type="text" class="mt-1" bind:value={$formEmpresario.nit} error={errors.nit} required />
-            </div>
-
-            <div>
-                <Label required labelFor="nombre_empresa" value="Nombre de la empresa" />
-                <Input id="nombre_empresa" type="text" class="mt-1" bind:value={$formEmpresario.nombre_empresa} error={errors.nombre_empresa} required />
-            </div>
-
-            <div>
-                <Label required labelFor="direccion_empresa" value="Dirección de la empresa" />
-                <Input id="direccion_empresa" type="text" class="mt-1" bind:value={$formEmpresario.direccion_empresa} error={errors.direccion_empresa} required />
-            </div>
-
-            <div>
-                <Label required labelFor="numero_celular_empresa" value="Teléfonos de la empresa" />
-                <Input id="numero_celular_empresa" type="text" class="mt-1" bind:value={$formEmpresario.numero_celular_empresa} error={errors.numero_celular_empresa} required />
-            </div>
-
-            <div>
-                <Label required labelFor="email_empresa" value="Correo electrónico de la empresa" />
-                <Input id="email_empresa" type="email" class="mt-1" bind:value={$formEmpresario.email_empresa} error={errors.email_empresa} required />
-            </div>
-
             {#if roles}
                 <div>
                     <Label required labelFor="rol_id_user" value="Roles" />

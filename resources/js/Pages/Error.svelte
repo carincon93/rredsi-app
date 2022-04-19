@@ -17,11 +17,11 @@
     <title>RREDSI-IBIS - Error {status}</title>
 </svelte:head>
 
-<div class="{status == 500 || status == 503 ? 'bg-red-700' : 'bg-indigo-700'}  flex flex-col items-center justify-center min-h-screen text-white">
+<div class="{status >= 500 || status == 403 ? 'bg-red-500' : 'bg-indigo-700'}  flex flex-col items-center justify-center min-h-screen text-white">
     <figure>
-        {#if status == 500}
+        {#if status >= 500 || status == 403}
             <img src="/images/error.png" alt="Error" class="w-2/3 m-auto mb-10" />
-        {:else}
+        {:else if status == 404}
             <img src="/images/error404.png" alt="Error" class="w-2/3 m-auto mb-10" />
         {/if}
     </figure>
@@ -55,7 +55,7 @@
                 </ul>
 
                 <div class="flex items-center mt-10">
-                    <Button on:click={() => Inertia.visit(route('login'))} variant="raised" class="ml-4">Regresar a la aplicación</Button>
+                    <Button on:click={() => Inertia.visit(route('login'))} variant="raised" class=" ml-4" style="background-color: white !important; color: black !important;">Regresar a la aplicación</Button>
                 </div>
             </div>
         {/if}

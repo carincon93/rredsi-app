@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserEmpresarioRequest;
+use App\Http\Requests\PerfilRequest;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 
@@ -12,6 +12,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\Empresa;
 use App\Models\InstitucionEducativa;
 use App\Models\SemilleroInvestigacion;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -109,12 +110,21 @@ class UserController extends Controller
 
         $user->institucionEducativa()->associate($request->institucion_educativa_id);
 
-        if ($request->defaultPassword) {
-            $user->password = $user::makePassword($request->numero_documento);
-        }
-
         $user->save();
         $user->syncRoles($request->rol_id);
+
+        if ($request->tipo_usuario == 'empresario') {
+            $empresa = new Empresa();
+            $empresa->nit            = $request->nit;
+            $empresa->nombre         = $request->nombre_empresa;
+            $empresa->direccion      = $request->direccion_empresa;
+            $empresa->numero_celular = $request->numero_celular_empresa;
+            $empresa->email          = $request->email_empresa;
+
+            $empresa->save();
+
+            $user->update(['empresa_id' => $empresa->id]);
+        }
 
         if ($request->semillero_investigacion_id) {
             $user->semillerosInvestigacion()->attach($request->semillero_investigacion_id);
@@ -226,6 +236,30 @@ class UserController extends Controller
         $user->save();
         $user->syncRoles($request->rol_id);
 
+        if ($request->tipo_usuario == 'empresario') {
+            if ($user->empresa()->exists()) {
+                $user->empresa()->update([
+                    'nit'               => $request->nit,
+                    'nombre'            => $request->nombre_empresa,
+                    'direccion'         => $request->direccion_empresa,
+                    'numero_celular'    => $request->numero_celular_empresa,
+                    'email'             => $request->email_empresa
+                ]);
+            } else {
+                $empresa = Empresa::create([
+                    'nit'               => $request->nit,
+                    'nombre'            => $request->nombre_empresa,
+                    'direccion'         => $request->direccion_empresa,
+                    'numero_celular'    => $request->numero_celular_empresa,
+                    'email'             => $request->email_empresa
+                ]);
+
+                $user->update([
+                    'empresa_id' => $empresa->id
+                ]);
+            }
+        }
+
         if ($request->semillero_investigacion_id) {
             $user->semillerosInvestigacion()->sync($request->semillero_investigacion_id);
             return redirect()->route('users.index', ['institucionEducativaId=' . $request->institucion_educativa_id, 'semilleroId=' . $request->semillero_investigacion_id]);
@@ -249,49 +283,59 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'El usuario se ha eliminado correctamente.');
     }
 
-    public function empresarioRegister(UserEmpresarioRequest $request)
+    /**
+     * Show user's profile.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function perfil()
     {
-        $empresa = new Empresa();
-        $empresa->nit            = $request->nit;
-        $empresa->nombre         = $request->nombre_empresa;
-        $empresa->direccion      = $request->direccion_empresa;
-        $empresa->numero_celular = $request->numero_celular_empresa;
-        $empresa->email          = $request->email_empresa;
+        $user = Auth::user();
+        $user->empresa;
 
-        $empresa->save();
-
-        $user = new User();
-        $user->name                              = $request->name;
-        $user->email                             = $request->email;
-        $user->password                          = Hash::make($request->password);
-        $user->tipo_documento                    = $request->tipo_documento;
-        $user->numero_documento                  = $request->numero_documento;
-        $user->numero_celular                    = $request->numero_celular;
-        $user->empresa_id                        = $empresa->id;
-        $user->esta_habilitado                   = $request->esta_habilitado;
-        $user->autorizacion_tratamiento_datos    = $request->autorizacion_tratamiento_datos;
-
-        $empresa->user()->save($user);
-
-        $user->syncRoles($request->rol_id);
-
-        return redirect()->route('users.index')->with('success', 'El usuario se ha creado correctamente.');
+        return Inertia::render('Users/Perfil', [
+            'user' => $user
+        ]);
     }
 
-    public function empresarioUpdate(UserEmpresarioRequest $request, User $user)
+    /**
+     * Actualizar perfil
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function actualizarPerfil(PerfilRequest $request)
     {
-        $user->name                              = $request->name;
-        $user->email                             = $request->email;
-        $user->password                          = Hash::make($request->password);
-        $user->tipo_documento                    = $request->tipo_documento;
-        $user->numero_documento                  = $request->numero_documento;
-        $user->numero_celular                    = $request->numero_celular;
-        $user->esta_habilitado                   = $request->esta_habilitado;
-        $user->autorizacion_tratamiento_datos    = $request->autorizacion_tratamiento_datos;
+        $user = Auth::user();
+        $user->name                             = $request->name;
+        $user->email                            = $request->email;
+        $user->tipo_documento                   = $request->tipo_documento;
+        $user->numero_documento                 = $request->numero_documento;
+        $user->numero_celular                   = $request->numero_celular;
+        $user->intereses                        = $request->intereses;
+        $user->perfil                           = $request->perfil;
+        $user->cvlac                            = $request->cvlac;
+        $user->autorizacion_tratamiento_datos   = $request->autorizacion_tratamiento_datos;
+
+        if ($request->hasFile('cv')) {
+            $file       = $request->file('cv');
+            $extension  = $file->extension();
+            $fileName   = Str::slug(substr($request->name, 0, 20)) . "-RREDSI-cv" . time() . $extension;
+            Storage::putFileAs(
+                'public/hojas-vida-estudiantes',
+                $file,
+                $fileName
+            );
+
+            $user->cv  = "hojas-vida-estudiantes/$fileName";
+        }
+
+        if ($request->password) {
+            $user->password = $request->password;
+        }
 
         $user->save();
-
-        $user->syncRoles($request->rol_id);
 
         if ($user->empresa()->exists()) {
             $user->empresa()->update([
@@ -301,56 +345,8 @@ class UserController extends Controller
                 'numero_celular'    => $request->numero_celular_empresa,
                 'email'             => $request->email_empresa
             ]);
-        } else {
-            $empresa = Empresa::create([
-                'nit'               => $request->nit,
-                'nombre'            => $request->nombre_empresa,
-                'direccion'         => $request->direccion_empresa,
-                'numero_celular'    => $request->numero_celular_empresa,
-                'email'             => $request->email_empresa
-            ]);
-
-            $user->update([
-                'empresa_id' => $empresa->id
-            ]);
         }
 
-        return redirect()->route('users.index')->with('success', 'El usuario se ha modificado correctamente.');
-    }
-
-    /**
-     * Show user's change password form.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function showChangePasswordForm()
-    {
-        return Inertia::render('Auth/ChangePassword');
-    }
-
-    /**
-     * Change user's password.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function changePassword(Request $request)
-    {
-        $request->validate([
-            'password' => 'required|string|min:6|different:old_password|confirmed'
-        ]);
-
-        if (Hash::check($request->get('old_password'), auth()->user()->password)) {
-            auth()->user()->password = Hash::make($request->get('password'));
-            auth()->user()->save();
-            $message = 'La contraseña se ha actualizado correctamente.';
-            $status = 'success';
-        } else {
-            $message = 'La contraseña actual no coincide.';
-            $status = 'error';
-        }
-
-        return back()->with($status, $message);
+        return back()->with('success', 'Se ha actualizado la información correctamente.');
     }
 }

@@ -6,6 +6,7 @@
 
     import ApplicationLogo from '@/Shared/ApplicationLogo'
     import Pagination from '@/Shared/Pagination'
+    import InfoMessage from '@/Shared/InfoMessage'
     import NavEmpresarial from './NavEmpresarial'
 
     export let proyectos
@@ -135,8 +136,9 @@
                     </div>
                 </a>
             {/each}
+
             {#if proyectos.data.length == 0}
-                <p>Sin información registrada.</p>
+                <InfoMessage alertMsg={true} class="w-full mb-20">Sin información registrada.</InfoMessage>
             {/if}
         </div>
         <Pagination links={proyectos.links} />

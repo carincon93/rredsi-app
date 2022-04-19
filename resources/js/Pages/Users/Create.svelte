@@ -5,7 +5,6 @@
     import { _ } from 'svelte-i18n'
 
     import Form from './Form'
-    import FormEmpresario from './FormEmpresario'
     import InfoMessage from '@/Shared/InfoMessage'
     import Button from '@/Shared/Button'
 
@@ -20,8 +19,6 @@
         { value: 'ti', label: 'Tarjeta de identidad' },
         { value: 'ce', label: 'Cédula de extranjería' },
     ]
-
-    let tipoUsuario = 'rredsi'
 
     $: $title = 'Crear usuario'
 
@@ -49,6 +46,12 @@
         esta_habilitado: true,
         rol_id: null,
         autorizacion_tratamiento_datos: true,
+        tipo_usuario: 'rredsi',
+        nit: '',
+        nombre_empresa: '',
+        direccion_empresa: '',
+        numero_celular_empresa: '',
+        email_empresa: '',
     })
 
     function submit() {
@@ -57,32 +60,6 @@
                 onStart: () => (sending = true),
                 onFinish: () => (sending = false),
             })
-        }
-    }
-
-    let formEmpresario = useForm({
-        name: '',
-        email: '',
-        password: null,
-        password_confirmation: null,
-        tipo_documento: '',
-        numero_documento: '',
-        numero_celular: '',
-        nit: '',
-        nombre_empresa: '',
-        direccion_empresa: '',
-        numero_celular_empresa: '',
-        email_empresa: '',
-        autorizacion_tratamiento_datos: true,
-        esta_habilitado: true,
-        rol_id: null,
-    })
-
-    function submitEmpresario() {
-        if (isSuperAdmin || checkPermission(authUser, [17, 23])) {
-            if ($formEmpresario.autorizacion_tratamiento_datos) {
-                $formEmpresario.post(route('users.empresario.register'))
-            }
         }
     }
 </script>
@@ -109,17 +86,13 @@
             <InfoMessage>
                 Por favor seleccione el tipo de usuario:
                 <div class="grid grid-cols-2 gap-2 mt-4">
-                    <Button on:click={() => (tipoUsuario = 'rredsi')} variant={tipoUsuario == 'rredsi' ? 'raised' : 'outlined'} class="p-2 w-full">Usuario RREDSI</Button>
+                    <Button on:click={() => ($form.tipo_usuario = 'rredsi')} variant={$form.tipo_usuario == 'rredsi' ? 'raised' : 'outlined'} class="p-2 w-full">Usuario RREDSI</Button>
 
-                    <Button on:click={() => (tipoUsuario = 'empresario')} variant={tipoUsuario == 'empresario' ? 'raised' : 'outlined'} class="p-2 w-full">Empresario</Button>
+                    <Button on:click={() => ($form.tipo_usuario = 'empresario')} variant={$form.tipo_usuario == 'empresario' ? 'raised' : 'outlined'} class="p-2 w-full">Empresario</Button>
                 </div>
             </InfoMessage>
 
-            {#if tipoUsuario == 'rredsi'}
-                <Form {errors} {authUser} {submit} {tiposDocumento} {roles} {institucionEducativa} method="create" {institucionesEducativas} {sending} {form} />
-            {:else if tipoUsuario == 'empresario'}
-                <FormEmpresario {errors} authUser={null} submit={submitEmpresario} {tiposDocumento} {roles} method="register" {sending} {formEmpresario} />
-            {/if}
+            <Form {errors} {authUser} {submit} {tiposDocumento} {roles} {institucionEducativa} method="create" {institucionesEducativas} {sending} {form} />
         </div>
     </div>
 </AuthenticatedLayout>

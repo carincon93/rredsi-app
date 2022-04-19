@@ -27023,63 +27023,7 @@ function get_each_context_8(ctx, list, i) {
 	return child_ctx;
 }
 
-// (33:12) {#if proyecto.privado}
-function create_if_block_3(ctx) {
-	let infomessage;
-	let current;
-
-	infomessage = new _Shared_InfoMessage__WEBPACK_IMPORTED_MODULE_4__["default"]({
-			props: {
-				alertMsg: true,
-				class: "mt-4",
-				$$slots: { default: [create_default_slot_2] },
-				$$scope: { ctx }
-			}
-		});
-
-	return {
-		c() {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(infomessage.$$.fragment);
-		},
-		m(target, anchor) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(infomessage, target, anchor);
-			current = true;
-		},
-		i(local) {
-			if (current) return;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(infomessage.$$.fragment, local);
-			current = true;
-		},
-		o(local) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(infomessage.$$.fragment, local);
-			current = false;
-		},
-		d(detaching) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(infomessage, detaching);
-		}
-	};
-}
-
-// (34:16) <InfoMessage alertMsg={true} class="mt-4">
-function create_default_slot_2(ctx) {
-	let p;
-
-	return {
-		c() {
-			p = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			p.textContent = "El proyecto es privado por lo tanto no podrá ser consultado";
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(p, "class", "font-medium");
-		},
-		m(target, anchor) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, p, anchor);
-		},
-		d(detaching) {
-			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(p);
-		}
-	};
-}
-
-// (66:8) {#each proyecto.palabras_clave_format as palabra}
+// (61:8) {#each proyecto.palabras_clave_format as palabra}
 function create_each_block_8(ctx) {
 	let a;
 	let t_value = /*palabra*/ ctx[32].value + "";
@@ -27128,7 +27072,7 @@ function create_each_block_8(ctx) {
 	};
 }
 
-// (97:20) {#each proyecto.semilleros_investigacion as semilleroInvestigacion}
+// (92:20) {#each proyecto.semilleros_investigacion as semilleroInvestigacion}
 function create_each_block_7(ctx) {
 	let li;
 	let t_value = /*semilleroInvestigacion*/ ctx[12].nombre + "";
@@ -27152,7 +27096,7 @@ function create_each_block_7(ctx) {
 	};
 }
 
-// (106:20) {#each proyecto.lineas_investigacion as lineaInvestigacion}
+// (101:20) {#each proyecto.lineas_investigacion as lineaInvestigacion}
 function create_each_block_6(ctx) {
 	let li;
 	let t_value = /*lineaInvestigacion*/ ctx[27].nombre + "";
@@ -27176,7 +27120,7 @@ function create_each_block_6(ctx) {
 	};
 }
 
-// (115:20) {#each proyecto.programas_academicos as programaAcademico}
+// (110:20) {#each proyecto.programas_academicos as programaAcademico}
 function create_each_block_5(ctx) {
 	let li;
 	let t_value = /*programaAcademico*/ ctx[24].nombre + "";
@@ -27200,7 +27144,7 @@ function create_each_block_5(ctx) {
 	};
 }
 
-// (124:20) {#each proyecto.disciplinas_subarea_conocimiento as disciplina}
+// (119:20) {#each proyecto.disciplinas_subarea_conocimiento as disciplina}
 function create_each_block_4(ctx) {
 	let li;
 	let t_value = /*disciplina*/ ctx[21].nombre + "";
@@ -27224,7 +27168,7 @@ function create_each_block_4(ctx) {
 	};
 }
 
-// (132:4) {#if proyecto.requerimientos_roles_format?.length > 0}
+// (127:4) {#if proyecto.requerimientos_roles_format?.length > 0}
 function create_if_block_2(ctx) {
 	let hr;
 	let t0;
@@ -27347,7 +27291,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (144:20) {#each proyecto.requerimientos_roles_format as rol}
+// (139:20) {#each proyecto.requerimientos_roles_format as rol}
 function create_each_block_3(ctx) {
 	let li;
 	let t_value = /*rol*/ ctx[18].value + "";
@@ -27371,7 +27315,7 @@ function create_each_block_3(ctx) {
 	};
 }
 
-// (157:4) {#if proyecto.requerimientos_equipos_format?.length > 0}
+// (152:4) {#if proyecto.requerimientos_equipos_format?.length > 0}
 function create_if_block_1(ctx) {
 	let hr;
 	let t0;
@@ -27494,7 +27438,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (169:20) {#each proyecto.requerimientos_equipos_format as equipo}
+// (164:20) {#each proyecto.requerimientos_equipos_format as equipo}
 function create_each_block_2(ctx) {
 	let li;
 	let t_value = /*equipo*/ ctx[15].value + "";
@@ -27518,7 +27462,7 @@ function create_each_block_2(ctx) {
 	};
 }
 
-// (199:4) {:else}
+// (194:4) {:else}
 function create_else_block(ctx) {
 	let button;
 	let mounted;
@@ -27551,7 +27495,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (182:4) {#if authUser.empresa_id}
+// (177:4) {#if authUser.empresa_id}
 function create_if_block(ctx) {
 	let button;
 	let svg;
@@ -27611,7 +27555,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (211:8) <InfoMessage>
+// (206:8) <InfoMessage>
 function create_default_slot_1(ctx) {
 	let t;
 
@@ -27628,7 +27572,7 @@ function create_default_slot_1(ctx) {
 	};
 }
 
-// (210:4) 
+// (205:4) 
 function create_title_slot(ctx) {
 	let div;
 	let infomessage;
@@ -27678,7 +27622,7 @@ function create_title_slot(ctx) {
 	};
 }
 
-// (217:12) {#each proyecto.semilleros_investigacion as semilleroInvestigacion}
+// (212:12) {#each proyecto.semilleros_investigacion as semilleroInvestigacion}
 function create_each_block_1(ctx) {
 	let li;
 	let div;
@@ -27765,7 +27709,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (236:12) {#each proyecto.autores as autor}
+// (231:12) {#each proyecto.autores as autor}
 function create_each_block(ctx) {
 	let li;
 	let div;
@@ -27832,7 +27776,7 @@ function create_each_block(ctx) {
 	};
 }
 
-// (213:4) 
+// (208:4) 
 function create_content_slot(ctx) {
 	let div;
 	let h10;
@@ -27963,7 +27907,7 @@ function create_content_slot(ctx) {
 	};
 }
 
-// (250:12) <Button on:click={(event) => (dialogOpen = false)} variant={null}>
+// (245:12) <Button on:click={(event) => (dialogOpen = false)} variant={null}>
 function create_default_slot(ctx) {
 	let t;
 
@@ -27980,7 +27924,7 @@ function create_default_slot(ctx) {
 	};
 }
 
-// (248:4) 
+// (243:4) 
 function create_actions_slot(ctx) {
 	let div1;
 	let div0;
@@ -28050,100 +27994,98 @@ function create_fragment(ctx) {
 	let t3_value = /*proyecto*/ ctx[0].titulo + "";
 	let t3;
 	let t4;
-	let t5;
 	let figure0;
 	let img0;
 	let img0_src_value;
-	let t6;
+	let t5;
 	let hr0;
-	let t7;
+	let t6;
 	let p1;
-	let t9;
+	let t8;
 	let p2;
-	let t10_value = /*proyecto*/ ctx[0].facultad.nombre + "";
+	let t9_value = /*proyecto*/ ctx[0].facultad.nombre + "";
+	let t9;
 	let t10;
-	let t11;
 	let p3;
-	let t13;
+	let t12;
 	let div2;
 	let figure1;
 	let img1;
 	let img1_src_value;
 	let img1_alt_value;
-	let t14;
+	let t13;
 	let p4;
-	let t15_value = /*proyecto*/ ctx[0].facultad.institucion_educativa.nombre + "";
+	let t14_value = /*proyecto*/ ctx[0].facultad.institucion_educativa.nombre + "";
+	let t14;
 	let t15;
-	let t16;
 	let hr1;
-	let t17;
+	let t16;
 	let h11;
-	let t19;
+	let t18;
 	let p5;
-	let t20_value = /*proyecto*/ ctx[0].resumen + "";
+	let t19_value = /*proyecto*/ ctx[0].resumen + "";
+	let t19;
 	let t20;
-	let t21;
 	let hr2;
-	let t22;
+	let t21;
 	let h12;
-	let t24;
+	let t23;
 	let div3;
-	let t25;
+	let t24;
 	let hr3;
-	let t26;
+	let t25;
 	let h13;
-	let t28;
+	let t27;
 	let p6;
-	let t29_value = /*proyecto*/ ctx[0].objetivo_general + "";
+	let t28_value = /*proyecto*/ ctx[0].objetivo_general + "";
+	let t28;
 	let t29;
-	let t30;
 	let hr4;
-	let t31;
+	let t30;
 	let div12;
 	let div4;
-	let t33;
+	let t32;
 	let div11;
 	let div5;
 	let p7;
-	let t35;
+	let t34;
 	let p8;
-	let t36_value = /*proyecto*/ ctx[0].tipo_proyecto.tipo + "";
+	let t35_value = /*proyecto*/ ctx[0].tipo_proyecto.tipo + "";
+	let t35;
 	let t36;
-	let t37;
 	let div6;
 	let p9;
-	let t39;
+	let t38;
 	let a;
-	let t40;
+	let t39;
 	let a_href_value;
-	let t41;
+	let t40;
 	let div7;
 	let p10;
-	let t43;
+	let t42;
 	let ul0;
-	let t44;
+	let t43;
 	let div8;
 	let p11;
-	let t46;
+	let t45;
 	let ul1;
-	let t47;
+	let t46;
 	let div9;
 	let p12;
-	let t49;
+	let t48;
 	let ul2;
-	let t50;
+	let t49;
 	let div10;
 	let p13;
-	let t52;
+	let t51;
 	let ul3;
+	let t52;
 	let t53;
 	let t54;
 	let t55;
-	let t56;
 	let dialog;
 	let updating_open;
 	let current;
-	let if_block0 = /*proyecto*/ ctx[0].privado && create_if_block_3(ctx);
 	let each_value_8 = /*proyecto*/ ctx[0].palabras_clave_format;
 	let each_blocks_4 = [];
 
@@ -28179,8 +28121,8 @@ function create_fragment(ctx) {
 		each_blocks[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
 	}
 
-	let if_block1 = /*proyecto*/ ctx[0].requerimientos_roles_format?.length > 0 && create_if_block_2(ctx);
-	let if_block2 = /*proyecto*/ ctx[0].requerimientos_equipos_format?.length > 0 && create_if_block_1(ctx);
+	let if_block0 = /*proyecto*/ ctx[0].requerimientos_roles_format?.length > 0 && create_if_block_2(ctx);
+	let if_block1 = /*proyecto*/ ctx[0].requerimientos_equipos_format?.length > 0 && create_if_block_1(ctx);
 
 	function select_block_type(ctx, dirty) {
 		if (/*authUser*/ ctx[3].empresa_id) return create_if_block;
@@ -28188,7 +28130,7 @@ function create_fragment(ctx) {
 	}
 
 	let current_block_type = select_block_type(ctx, [-1, -1]);
-	let if_block3 = current_block_type(ctx);
+	let if_block2 = current_block_type(ctx);
 
 	function dialog_open_binding(value) {
 		/*dialog_open_binding*/ ctx[7](value);
@@ -28223,128 +28165,126 @@ function create_fragment(ctx) {
 			span = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
 			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t3_value);
 			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-			if (if_block0) if_block0.c();
-			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			figure0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("figure");
 			img0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
-			t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			hr0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("hr");
-			t7 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p1.textContent = "Facultad";
-			t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			t10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t10_value);
-			t11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t9_value);
+			t10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p3.textContent = "Institución educativa";
-			t13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			figure1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("figure");
 			img1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
-			t14 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			t15 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t15_value);
-			t16 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t14 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t14_value);
+			t15 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			hr1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("hr");
-			t17 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t16 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			h11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
 			h11.textContent = "Resumen";
-			t19 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t18 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			t20 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t20_value);
-			t21 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t19 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t19_value);
+			t20 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			hr2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("hr");
-			t22 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t21 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			h12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
 			h12.textContent = "Palabras clave";
-			t24 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t23 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 
 			for (let i = 0; i < each_blocks_4.length; i += 1) {
 				each_blocks_4[i].c();
 			}
 
-			t25 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t24 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			hr3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("hr");
-			t26 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t25 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			h13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
 			h13.textContent = "Objetivo general";
-			t28 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t27 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			t29 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t29_value);
-			t30 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t28 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t28_value);
+			t29 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			hr4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("hr");
-			t31 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t30 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div4.innerHTML = `<h1 class="font-medium">Ficha técnica del proyecto</h1>`;
-			t33 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t32 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p7 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p7.textContent = "Tipo de proyecto";
-			t35 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t34 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			p8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
-			t36 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t36_value);
-			t37 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t35 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t35_value);
+			t36 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p9.textContent = "Archivo PDF";
-			t39 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t38 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			a = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("a");
-			t40 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Ver archivo PDF del proyecto");
-			t41 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t39 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Ver archivo PDF del proyecto");
+			t40 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div7 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p10.textContent = "Semilleros de investigación asociados";
-			t43 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t42 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			ul0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("ul");
 
 			for (let i = 0; i < each_blocks_3.length; i += 1) {
 				each_blocks_3[i].c();
 			}
 
-			t44 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t43 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p11.textContent = "Líneas de investigación asociadas";
-			t46 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t45 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			ul1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("ul");
 
 			for (let i = 0; i < each_blocks_2.length; i += 1) {
 				each_blocks_2[i].c();
 			}
 
-			t47 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t46 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p12.textContent = "Programas académicos asociados";
-			t49 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t48 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			ul2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("ul");
 
 			for (let i = 0; i < each_blocks_1.length; i += 1) {
 				each_blocks_1[i].c();
 			}
 
-			t50 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t49 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			p13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
 			p13.textContent = "Disciplinas asociadas";
-			t52 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t51 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			ul3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("ul");
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].c();
 			}
 
+			t52 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			if (if_block0) if_block0.c();
 			t53 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block1) if_block1.c();
 			t54 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-			if (if_block2) if_block2.c();
+			if_block2.c();
 			t55 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-			if_block3.c();
-			t56 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(dialog.$$.fragment);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(p0, "class", "mb-2 text-xs");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(span, "class", "block text-blue-900 xl:inline");
@@ -28407,117 +28347,115 @@ function create_fragment(ctx) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, h10);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(h10, span);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(span, t3);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, t4);
-			if (if_block0) if_block0.m(div0, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t5);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t4);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, figure0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(figure0, img0);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t6);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t5);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, hr0);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t7);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t6);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, p1);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t9);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t8);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, p2);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p2, t10);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t11);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p2, t9);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t10);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, p3);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t13);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t12);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, div2);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, figure1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(figure1, img1);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t14);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t13);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, p4);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p4, t15);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t16);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p4, t14);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t15);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, hr1);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t17);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t16);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, h11);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t19);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t18);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, p5);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p5, t20);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t21);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p5, t19);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t20);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, hr2);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t22);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t21);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, h12);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t24);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t23);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, div3);
 
 			for (let i = 0; i < each_blocks_4.length; i += 1) {
 				each_blocks_4[i].m(div3, null);
 			}
 
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t25);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t24);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, hr3);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t26);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t25);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, h13);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t28);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t27);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, p6);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p6, t29);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t30);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p6, t28);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t29);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, hr4);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t31);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t30);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, div12);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, div4);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, t33);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, t32);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, div11);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div5);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, p7);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, t35);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, t34);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, p8);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p8, t36);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t37);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(p8, t35);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t36);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div6);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div6, p9);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div6, t39);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div6, t38);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div6, a);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(a, t40);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t41);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(a, t39);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t40);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div7);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div7, p10);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div7, t43);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div7, t42);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div7, ul0);
 
 			for (let i = 0; i < each_blocks_3.length; i += 1) {
 				each_blocks_3[i].m(ul0, null);
 			}
 
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t44);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t43);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div8);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div8, p11);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div8, t46);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div8, t45);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div8, ul1);
 
 			for (let i = 0; i < each_blocks_2.length; i += 1) {
 				each_blocks_2[i].m(ul1, null);
 			}
 
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t47);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t46);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div9);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div9, p12);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div9, t49);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div9, t48);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div9, ul2);
 
 			for (let i = 0; i < each_blocks_1.length; i += 1) {
 				each_blocks_1[i].m(ul2, null);
 			}
 
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t50);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, t49);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div11, div10);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div10, p13);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div10, t52);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div10, t51);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div10, ul3);
 
 			for (let i = 0; i < each_blocks.length; i += 1) {
 				each_blocks[i].m(ul3, null);
 			}
 
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t52);
+			if (if_block0) if_block0.m(div13, null);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t53);
 			if (if_block1) if_block1.m(div13, null);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t54);
-			if (if_block2) if_block2.m(div13, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t55);
-			if_block3.m(div13, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t56, anchor);
+			if_block2.m(div13, null);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t55, anchor);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(dialog, target, anchor);
 			current = true;
 		},
@@ -28525,32 +28463,11 @@ function create_fragment(ctx) {
 			if ((!current || dirty[0] & /*proyecto*/ 1) && t1_value !== (t1_value = /*proyecto*/ ctx[0].datesForHumans + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t1, t1_value);
 			if ((!current || dirty[0] & /*proyecto*/ 1) && t3_value !== (t3_value = /*proyecto*/ ctx[0].titulo + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t3, t3_value);
 
-			if (/*proyecto*/ ctx[0].privado) {
-				if (if_block0) {
-					if (dirty[0] & /*proyecto*/ 1) {
-						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0, 1);
-					}
-				} else {
-					if_block0 = create_if_block_3(ctx);
-					if_block0.c();
-					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0, 1);
-					if_block0.m(div0, null);
-				}
-			} else if (if_block0) {
-				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
-
-				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block0, 1, 1, () => {
-					if_block0 = null;
-				});
-
-				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
-			}
-
 			if (!current || dirty[0] & /*proyecto*/ 1 && !(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.src_url_equal)(img0.src, img0_src_value = '/storage/' + /*proyecto*/ ctx[0].main_image)) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img0, "src", img0_src_value);
 			}
 
-			if ((!current || dirty[0] & /*proyecto*/ 1) && t10_value !== (t10_value = /*proyecto*/ ctx[0].facultad.nombre + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t10, t10_value);
+			if ((!current || dirty[0] & /*proyecto*/ 1) && t9_value !== (t9_value = /*proyecto*/ ctx[0].facultad.nombre + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t9, t9_value);
 
 			if (!current || dirty[0] & /*proyecto*/ 1 && !(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.src_url_equal)(img1.src, img1_src_value = "/storage/" + /*proyecto*/ ctx[0].facultad.institucion_educativa.logo)) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img1, "src", img1_src_value);
@@ -28560,8 +28477,8 @@ function create_fragment(ctx) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img1, "alt", img1_alt_value);
 			}
 
-			if ((!current || dirty[0] & /*proyecto*/ 1) && t15_value !== (t15_value = /*proyecto*/ ctx[0].facultad.institucion_educativa.nombre + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t15, t15_value);
-			if ((!current || dirty[0] & /*proyecto*/ 1) && t20_value !== (t20_value = /*proyecto*/ ctx[0].resumen + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t20, t20_value);
+			if ((!current || dirty[0] & /*proyecto*/ 1) && t14_value !== (t14_value = /*proyecto*/ ctx[0].facultad.institucion_educativa.nombre + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t14, t14_value);
+			if ((!current || dirty[0] & /*proyecto*/ 1) && t19_value !== (t19_value = /*proyecto*/ ctx[0].resumen + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t19, t19_value);
 
 			if (dirty[0] & /*proyecto*/ 1) {
 				each_value_8 = /*proyecto*/ ctx[0].palabras_clave_format;
@@ -28586,8 +28503,8 @@ function create_fragment(ctx) {
 				each_blocks_4.length = each_value_8.length;
 			}
 
-			if ((!current || dirty[0] & /*proyecto*/ 1) && t29_value !== (t29_value = /*proyecto*/ ctx[0].objetivo_general + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t29, t29_value);
-			if ((!current || dirty[0] & /*proyecto*/ 1) && t36_value !== (t36_value = /*proyecto*/ ctx[0].tipo_proyecto.tipo + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t36, t36_value);
+			if ((!current || dirty[0] & /*proyecto*/ 1) && t28_value !== (t28_value = /*proyecto*/ ctx[0].objetivo_general + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t28, t28_value);
+			if ((!current || dirty[0] & /*proyecto*/ 1) && t35_value !== (t35_value = /*proyecto*/ ctx[0].tipo_proyecto.tipo + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t35, t35_value);
 
 			if (!current || dirty[0] & /*proyecto*/ 1 && a_href_value !== (a_href_value = '/storage/' + /*proyecto*/ ctx[0].file)) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(a, "href", a_href_value);
@@ -28686,10 +28603,23 @@ function create_fragment(ctx) {
 			}
 
 			if (/*proyecto*/ ctx[0].requerimientos_roles_format?.length > 0) {
+				if (if_block0) {
+					if_block0.p(ctx, dirty);
+				} else {
+					if_block0 = create_if_block_2(ctx);
+					if_block0.c();
+					if_block0.m(div13, t53);
+				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
+			}
+
+			if (/*proyecto*/ ctx[0].requerimientos_equipos_format?.length > 0) {
 				if (if_block1) {
 					if_block1.p(ctx, dirty);
 				} else {
-					if_block1 = create_if_block_2(ctx);
+					if_block1 = create_if_block_1(ctx);
 					if_block1.c();
 					if_block1.m(div13, t54);
 				}
@@ -28698,20 +28628,7 @@ function create_fragment(ctx) {
 				if_block1 = null;
 			}
 
-			if (/*proyecto*/ ctx[0].requerimientos_equipos_format?.length > 0) {
-				if (if_block2) {
-					if_block2.p(ctx, dirty);
-				} else {
-					if_block2 = create_if_block_1(ctx);
-					if_block2.c();
-					if_block2.m(div13, t55);
-				}
-			} else if (if_block2) {
-				if_block2.d(1);
-				if_block2 = null;
-			}
-
-			if_block3.p(ctx, dirty);
+			if_block2.p(ctx, dirty);
 			const dialog_changes = {};
 
 			if (dirty[0] & /*dialogOpen, proyecto*/ 3 | dirty[1] & /*$$scope*/ 16) {
@@ -28728,27 +28645,24 @@ function create_fragment(ctx) {
 		},
 		i(local) {
 			if (current) return;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(dialog.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(dialog.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div13);
-			if (if_block0) if_block0.d();
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_each)(each_blocks_4, detaching);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_each)(each_blocks_3, detaching);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_each)(each_blocks_2, detaching);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_each)(each_blocks_1, detaching);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_each)(each_blocks, detaching);
+			if (if_block0) if_block0.d();
 			if (if_block1) if_block1.d();
-			if (if_block2) if_block2.d();
-			if_block3.d();
-			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t56);
+			if_block2.d();
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t55);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(dialog, detaching);
 		}
 	};

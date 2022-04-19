@@ -25137,6 +25137,48 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function create_if_block_6(ctx) {
+	let img;
+	let img_src_value;
+
+	return {
+		c() {
+			img = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
+			if (!(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.src_url_equal)(img.src, img_src_value = "/images/error404.png")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "src", img_src_value);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "alt", "Error");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "class", "w-2/3 m-auto mb-10");
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, img, anchor);
+		},
+		d(detaching) {
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(img);
+		}
+	};
+}
+
+// (22:8) {#if status >= 500 || status == 403}
+function create_if_block_5(ctx) {
+	let img;
+	let img_src_value;
+
+	return {
+		c() {
+			img = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
+			if (!(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.src_url_equal)(img.src, img_src_value = "/images/error.png")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "src", img_src_value);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "alt", "Error");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "class", "w-2/3 m-auto mb-10");
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, img, anchor);
+		},
+		d(detaching) {
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(img);
+		}
+	};
+}
+
+// (44:32) 
 function create_if_block_4(ctx) {
 	let h1;
 
@@ -25155,7 +25197,7 @@ function create_if_block_4(ctx) {
 	};
 }
 
-// (38:32) 
+// (42:32) 
 function create_if_block_3(ctx) {
 	let h1;
 
@@ -25174,7 +25216,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (28:32) 
+// (32:32) 
 function create_if_block_2(ctx) {
 	let h1;
 	let t1;
@@ -25207,7 +25249,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (26:8) {#if status == 403}
+// (30:8) {#if status == 403}
 function create_if_block_1(ctx) {
 	let h1;
 
@@ -25226,7 +25268,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (44:8) {#if status != 503}
+// (48:8) {#if status != 503}
 function create_if_block(ctx) {
 	let div1;
 	let p;
@@ -25240,7 +25282,8 @@ function create_if_block(ctx) {
 	button = new _Shared_Button__WEBPACK_IMPORTED_MODULE_4__["default"]({
 			props: {
 				variant: "raised",
-				class: "ml-4",
+				class: " ml-4",
+				style: "background-color: white !important; color: black !important;",
 				$$slots: { default: [create_default_slot] },
 				$$scope: { ctx }
 			}
@@ -25302,7 +25345,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (54:20) <Button on:click={() => Inertia.visit(route('login'))} variant="raised" class="ml-4">
+// (58:20) <Button on:click={() => Inertia.visit(route('login'))} variant="raised" class=" ml-4" style="background-color: white !important; color: black !important;">
 function create_default_slot(ctx) {
 	let t;
 
@@ -25324,8 +25367,6 @@ function create_fragment(ctx) {
 	let t0;
 	let div1;
 	let figure;
-	let img;
-	let img_src_value;
 	let t1;
 	let div0;
 	let t2;
@@ -25334,45 +25375,50 @@ function create_fragment(ctx) {
 	document.title = title_value = "RREDSI-IBIS - Error " + /*status*/ ctx[0];
 
 	function select_block_type(ctx, dirty) {
+		if (/*status*/ ctx[0] >= 500 || /*status*/ ctx[0] == 403) return create_if_block_5;
+		if (/*status*/ ctx[0] == 404) return create_if_block_6;
+	}
+
+	let current_block_type = select_block_type(ctx, -1);
+	let if_block0 = current_block_type && current_block_type(ctx);
+
+	function select_block_type_1(ctx, dirty) {
 		if (/*status*/ ctx[0] == 403) return create_if_block_1;
 		if (/*status*/ ctx[0] == 404) return create_if_block_2;
 		if (/*status*/ ctx[0] == 500) return create_if_block_3;
 		if (/*status*/ ctx[0] == 503) return create_if_block_4;
 	}
 
-	let current_block_type = select_block_type(ctx, -1);
-	let if_block0 = current_block_type && current_block_type(ctx);
-	let if_block1 = /*status*/ ctx[0] != 503 && create_if_block(ctx);
+	let current_block_type_1 = select_block_type_1(ctx, -1);
+	let if_block1 = current_block_type_1 && current_block_type_1(ctx);
+	let if_block2 = /*status*/ ctx[0] != 503 && create_if_block(ctx);
 
 	return {
 		c() {
 			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			figure = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("figure");
-			img = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
+			if (if_block0) if_block0.c();
 			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-			if (if_block0) if_block0.c();
-			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block1) if_block1.c();
-			if (!(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.src_url_equal)(img.src, img_src_value = window.basePath + '/images/error.png')) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "src", img_src_value);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "alt", "Error");
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "class", "w-2/3 m-auto mb-10");
+			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			if (if_block2) if_block2.c();
 
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", div1_class_value = "" + ((/*status*/ ctx[0] == 500 || /*status*/ ctx[0] == 503
-			? 'bg-red-700'
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", div1_class_value = "" + ((/*status*/ ctx[0] >= 500 || /*status*/ ctx[0] == 403
+			? 'bg-red-500'
 			: 'bg-indigo-700') + " flex flex-col items-center justify-center min-h-screen text-white"));
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t0, anchor);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div1, anchor);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, figure);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(figure, img);
+			if (if_block0) if_block0.m(figure, null);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, t1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, div0);
-			if (if_block0) if_block0.m(div0, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, t2);
 			if (if_block1) if_block1.m(div0, null);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, t2);
+			if (if_block2) if_block2.m(div0, null);
 			current = true;
 		},
 		p(ctx, [dirty]) {
@@ -25386,46 +25432,56 @@ function create_fragment(ctx) {
 
 				if (if_block0) {
 					if_block0.c();
-					if_block0.m(div0, t2);
+					if_block0.m(figure, null);
+				}
+			}
+
+			if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx, dirty))) {
+				if (if_block1) if_block1.d(1);
+				if_block1 = current_block_type_1 && current_block_type_1(ctx);
+
+				if (if_block1) {
+					if_block1.c();
+					if_block1.m(div0, t2);
 				}
 			}
 
 			if (/*status*/ ctx[0] != 503) {
-				if (if_block1) {
-					if_block1.p(ctx, dirty);
+				if (if_block2) {
+					if_block2.p(ctx, dirty);
 
 					if (dirty & /*status*/ 1) {
-						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1, 1);
+						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2, 1);
 					}
 				} else {
-					if_block1 = create_if_block(ctx);
-					if_block1.c();
-					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1, 1);
-					if_block1.m(div0, null);
+					if_block2 = create_if_block(ctx);
+					if_block2.c();
+					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2, 1);
+					if_block2.m(div0, null);
 				}
-			} else if (if_block1) {
+			} else if (if_block2) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
 
-				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block1, 1, 1, () => {
-					if_block1 = null;
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block2, 1, 1, () => {
+					if_block2 = null;
 				});
 
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
 			}
 
-			if (!current || dirty & /*status*/ 1 && div1_class_value !== (div1_class_value = "" + ((/*status*/ ctx[0] == 500 || /*status*/ ctx[0] == 503
-			? 'bg-red-700'
+			if (!current || dirty & /*status*/ 1 && div1_class_value !== (div1_class_value = "" + ((/*status*/ ctx[0] >= 500 || /*status*/ ctx[0] == 403
+			? 'bg-red-500'
 			: 'bg-indigo-700') + " flex flex-col items-center justify-center min-h-screen text-white"))) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", div1_class_value);
 			}
 		},
 		i(local) {
 			if (current) return;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2);
 			current = true;
 		},
 		o(local) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block2);
 			current = false;
 		},
 		d(detaching) {
@@ -25436,7 +25492,11 @@ function create_fragment(ctx) {
 				if_block0.d();
 			}
 
-			if (if_block1) if_block1.d();
+			if (if_block1) {
+				if_block1.d();
+			}
+
+			if (if_block2) if_block2.d();
 		}
 	};
 }

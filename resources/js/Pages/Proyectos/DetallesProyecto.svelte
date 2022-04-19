@@ -30,11 +30,6 @@
                     {proyecto.titulo}
                 </span>
             </h1>
-            {#if proyecto.privado}
-                <InfoMessage alertMsg={true} class="mt-4">
-                    <p class="font-medium">El proyecto es privado por lo tanto no podrá ser consultado</p>
-                </InfoMessage>
-            {/if}
         </div>
         <figure class="absolute right-[-14rem] top-[-4rem]" style="clip-path: polygon(21% 0%, 100% 0%, 100% 100%, 0% 100%);">
             <img src={'/storage/' + proyecto.main_image} alt="" style="max-width: 1000px;height: 667px;" class="object-cover" />

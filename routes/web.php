@@ -121,9 +121,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // rutas para acceder a las respuestas //
     Route::resource('respuestas', RespuestaController::class)->parameters(['respuestas' => 'respuesta']);
 
-    // Cambiar contraseña
-    Route::put('/users/cambiar-password', [UserController::class, 'changePassword'])->name('users.change-password');
-    Route::get('/users/cambiar-password', [UserController::class, 'showChangePasswordForm'])->name('users.change-password-form');
 
     Route::get('/web-api/proyectos/{proyecto}/autores', function (Proyecto $proyecto) {
         return response(['autores' => $proyecto->autores()->get()]);
@@ -261,8 +258,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
      * Usuarios
      *
      */
-    Route::post('users/empresario/register', [UserController::class, 'empresarioRegister'])->name('users.empresario.register');
-    Route::put('users/empresario/{user}/update', [UserController::class, 'empresarioUpdate'])->name('users.empresario.update');
+    Route::get('/users/actualizar-perfil', [UserController::class, 'perfil'])->name('users.perfil');
+    Route::put('/users/actualizar-perfil', [UserController::class, 'actualizarPerfil'])->name('users.actualizar-perfil');
+
     Route::resource('users', UserController::class);
 });
 

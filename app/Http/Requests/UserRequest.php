@@ -23,22 +23,6 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->tipo_usuario == 'empresario') {
-            return [
-                'name'                              => 'required|string|max:191',
-                'email'                             => 'required|string|max:191|email|unique:users,email,id',
-                'password'                          => 'required|string|min:6|different:old_password|confirmed',
-                'tipo_documento'                    => 'required|string| max:2',
-                'numero_documento'                  => 'required|integer|min:0|max:9223372036854775807|unique:users,numero_documento,id',
-                'numero_celular'                    => 'required|integer|min:0|max:9223372036854775807',
-                'nit'                               => 'required|string|max:255',
-                'nombre_empresa'                    => 'required|string|max:255',
-                'direccion_empresa'                 => 'required|string|max:255',
-                'numero_celular_empresa'            => 'required|string|max:255',
-                'email_empresa'                     => 'required|string|max:255',
-            ];
-        }
-
         if ($this->isMethod('PUT')) {
             return [
                 'name'                              => 'required|string|max:191',

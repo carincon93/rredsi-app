@@ -101,8 +101,35 @@
 
             {#if institucionEducativa == null}
                 <div class="mt-4">
-                    <Label required labelFor="institucion_educativa_id" value="Institución educativa a la que pertenece" />
-                    <Select id="institucion_educativa_id" items={institucionesEducativas} bind:selectedValue={$form.institucion_educativa_id} error={errors.institucion_educativa_id} autocomplete="off" placeholder="Seleccione una institución educativa" required />
+                    <Label required={$form.tipo_usuario == 'rredsi' ? 'required' : undefined} labelFor="institucion_educativa_id" value="Institución educativa a la que pertenece" />
+                    <Select id="institucion_educativa_id" items={institucionesEducativas} bind:selectedValue={$form.institucion_educativa_id} error={errors.institucion_educativa_id} autocomplete="off" placeholder="Seleccione una institución educativa" required={$form.tipo_usuario == 'rredsi' ? 'required' : undefined} />
+                </div>
+            {/if}
+
+            {#if $form.tipo_usuario == 'empresario'}
+                <div>
+                    <Label required labelFor="nit" value="NIT" />
+                    <Input id="nit" type="text" class="mt-1" bind:value={$form.nit} error={errors.nit} required />
+                </div>
+
+                <div>
+                    <Label required labelFor="nombre_empresa" value="Nombre de la empresa" />
+                    <Input id="nombre_empresa" type="text" class="mt-1" bind:value={$form.nombre_empresa} error={errors.nombre_empresa} required />
+                </div>
+
+                <div>
+                    <Label required labelFor="direccion_empresa" value="Dirección de la empresa" />
+                    <Input id="direccion_empresa" type="text" class="mt-1" bind:value={$form.direccion_empresa} error={errors.direccion_empresa} required />
+                </div>
+
+                <div>
+                    <Label required labelFor="numero_celular_empresa" value="Teléfonos de la empresa" />
+                    <Input id="numero_celular_empresa" type="text" class="mt-1" bind:value={$form.numero_celular_empresa} error={errors.numero_celular_empresa} required />
+                </div>
+
+                <div>
+                    <Label required labelFor="email_empresa" value="Correo electrónico de la empresa" />
+                    <Input id="email_empresa" type="email" class="mt-1" bind:value={$form.email_empresa} error={errors.email_empresa} required />
                 </div>
             {/if}
 

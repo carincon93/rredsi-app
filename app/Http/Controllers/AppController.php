@@ -162,6 +162,8 @@ class AppController extends Controller
      */
     public function showProyecto(Nodo $nodo, Proyecto $proyecto)
     {
+        $this->authorize('view', [Proyecto::class, $proyecto->facultad->institucionEducativa, $proyecto]);
+
         $proyecto->facultad->institucionEducativa;
         $proyecto->disciplinasSubareaConocimiento;
         $proyecto->lineasInvestigacion;

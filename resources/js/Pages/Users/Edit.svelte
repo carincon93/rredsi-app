@@ -5,7 +5,8 @@
     import { _ } from 'svelte-i18n'
 
     import Form from './Form'
-    import FormEmpresario from './FormEmpresario'
+    import Button from '@/Shared/Button'
+    import InfoMessage from '@/Shared/InfoMessage'
 
     export let errors
     export let institucionEducativa
@@ -48,6 +49,12 @@
         esta_habilitado: user.esta_habilitado,
         autorizacion_tratamiento_datos: user.autorizacion_tratamiento_datos,
         rol_id: rolesRelacionados.length > 0 ? rolesRelacionados : null,
+        tipo_usuario: user.empresa_id ? 'empresario' : 'rredsi',
+        nit: user.empresa ? user.empresa.nit : '',
+        nombre_empresa: user.empresa ? user.empresa.nombre : '',
+        direccion_empresa: user.empresa ? user.empresa.direccion : '',
+        numero_celular_empresa: user.empresa ? user.empresa.numero_celular : '',
+        email_empresa: user.empresa ? user.empresa.email : '',
     })
 
     function submit() {
@@ -57,32 +64,6 @@
                 onFinish: () => (sending = false),
                 preserveScroll: true,
             })
-        }
-    }
-
-    let formEmpresario = useForm({
-        name: user.name,
-        email: user.email,
-        password: '',
-        password_confirmation: '',
-        tipo_documento: { value: user.tipo_documento, label: tiposDocumento.find((item) => item.value == user.tipo_documento)?.label },
-        numero_documento: user.numero_documento,
-        numero_celular: user.numero_celular,
-        nit: user.empresa ? user.empresa.nit : '',
-        nombre_empresa: user.empresa ? user.empresa.nombre : '',
-        direccion_empresa: user.empresa ? user.empresa.direccion : '',
-        numero_celular_empresa: user.empresa ? user.empresa.numero_celular : '',
-        email_empresa: user.empresa ? user.empresa.email : '',
-        autorizacion_tratamiento_datos: user.autorizacion_tratamiento_datos,
-        esta_habilitado: user.esta_habilitado,
-        rol_id: rolesRelacionados.length > 0 ? rolesRelacionados : null,
-    })
-
-    function submitEmpresario() {
-        if (isSuperAdmin || checkPermission(authUser, [17, 23])) {
-            if ($formEmpresario.autorizacion_tratamiento_datos) {
-                $formEmpresario.put(route('users.empresario.update', user.id))
-            }
         }
     }
 </script>
@@ -106,13 +87,16 @@
             <p class="mt-1 text-sm text-gray-600">Ingrese nueva información para editar el usuario.</p>
         </div>
         <div class="bg-white rounded shadow col-span-2">
-            <h1 class="text-2xl text-center">Usuario tipo RREDSI</h1>
+            <InfoMessage>
+                Por favor seleccione el tipo de usuario:
+                <div class="grid grid-cols-2 gap-2 mt-4">
+                    <Button on:click={() => ($form.tipo_usuario = 'rredsi')} variant={$form.tipo_usuario == 'rredsi' ? 'raised' : 'outlined'} class="p-2 w-full">Usuario RREDSI</Button>
+
+                    <Button on:click={() => ($form.tipo_usuario = 'empresario')} variant={$form.tipo_usuario == 'empresario' ? 'raised' : 'outlined'} class="p-2 w-full">Empresario</Button>
+                </div>
+            </InfoMessage>
+
             <Form {errors} {authUser} {submit} {tiposDocumento} {roles} {institucionEducativa} {institucionesEducativas} {sending} {form} />
-
-            <hr class="my-20 w-full block" />
-
-            <h1 class="text-2xl text-center">Usuario tipo empresario</h1>
-            <FormEmpresario {errors} authUser={null} submit={submitEmpresario} {tiposDocumento} {roles} {sending} {formEmpresario} />
         </div>
     </div>
 </AuthenticatedLayout>
